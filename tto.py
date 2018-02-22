@@ -37,11 +37,11 @@ def start():
         #variables for sending moves to tto_input
         
         if current_chance==0 and remaining_chances['p1']>0:
-            
-            input_move1=input('Enter your move player 1\t')
-            
+            try :
+                input_move1=int(raw_input('Enter your move player 1\t'))
+            except:
             #Checking if user has inputed correctly
-            if type(input_move1)!=int:
+            
                 print 'illegal input! Please enter a interger number only'.title() 
                 continue
             
@@ -65,11 +65,11 @@ def start():
                 
         
         elif current_chance==1 and remaining_chances['p2']>0:
-            
-            input_move2=input('Enter your move player 2\t')
-            
+            try:
+                input_move2=int(raw_input('Enter your move player 2\t'))
+            except:
             #Checking if user has inputed correctly
-            if type(input_move2)!=int:
+            
                 print 'illegal input! Please enter a interger number only'.title() 
                 continue
             
@@ -169,7 +169,7 @@ def clr():
     remaining_chances['p2']=4
     
     global board
-    board=['','','','','','','','','']
+    board=['BOX 0','BOX 1','BOX 2','BOX 3','BOX 4','BOX 5','BOX 6','BOX 7','BOX 8']    
     print 'all previuously given Entries have been cleared'.title()
 
 
@@ -186,7 +186,7 @@ def print_player_move():
     global inital_board_print
     if inital_board_print==1:
         inital_board_print=0
-        show_board(0,'')
+        show_board(0,'BOX 0')
         
     for element_in_player1 in players_move['player_1']:
         show_board(element_in_player1,'X')
